@@ -7,7 +7,7 @@
 /** Init LCD */
 
 // SCK = 18, MOSI = 23 are the ESP32 VSPI defaults
-// CS  = 5 , RST = 4  (your wiring)
+// CS  = 5 , RST = 4
 U8G2_ST7920_128X64_F_HW_SPI u8g2(U8G2_R0, /* CS=*/5, /* reset=*/4);
 
 
@@ -22,10 +22,10 @@ char keys[ROWS][COLS] = {
   { '*', '0', '#', 'D' }
 };
 
-uint8_t colPins[COLS] = { 27, 14, 12, 13 }; // Pins connected to C1, C2, C3, C4
-uint8_t rowPins[ROWS] = { 32, 33, 25, 26 }; // Pins connected to R1, R2, R3, R4
+uint8_t col_pins[COLS] = { 27, 14, 12, 13 }; // C1, C2, C3, C4
+uint8_t row_pins[ROWS] = { 32, 33, 25, 26 }; // R1, R2, R3, R4
 
-Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+Keypad keypad = Keypad(makeKeymap(keys), row_pins, col_pins, ROWS, COLS);
 uint8_t KEYMAP[256] = {0};
 char KEYSTR[16 + 1] = "0123456789ABCD*#";
 int keystate[16] = {0};
